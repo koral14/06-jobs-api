@@ -30,12 +30,12 @@ const createRecipe = async (req, res) => {
 
 const updateRecipe = async (req, res) => {
     const { 
-        body: { recipeName, region, typeOfFood, ingredients, recepeDescription, glutenFree },
+        body: { recipeName, region, typeOfFood, ingredients, recipeDescription, glutenFree },
         user: { userId }, 
         params: { id: recipeId } 
     } = req
     
-    if (recipeName === '', region === '', typeOfFood === '', ingredients === '', recepeDescription ==='') {
+    if (recipeName === '', region === '', typeOfFood === '', ingredients === '', recipeDescription ==='') {
         throw new BadRequestError('Fields cannot be empty!')
     }
     const recipe = await Recipe.findByIdAndUpdate(
@@ -61,7 +61,7 @@ const deleteRecipe = async (req, res) => {
     if (!recipe) {
         throw new NotFoundError(`no recipe with id ${recipeId}`)
     }
-    res.status(StatusCodes.OK).send({msg: "recipe deleted"})
+    res.status(StatusCodes.OK).json({msg: "recipe deleted"})
 };
 
 module.exports = {

@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jobs List</title>
+    <title>Recipes List</title>
 </head>
 
 <body>
-    <h1>Jobs List</h1>
+    <h1>Recipes List</h1>
     <button type="button" id="logoff" style="display:none;">logoff</button>
     <hr>
     <p id="message"></p>
@@ -54,40 +54,60 @@
             <button type="button" id="register-cancel">cancel</button>
         </form>
     </div>
-    <div id="jobs" style="display:none;">
-        <p id="jobs-message"></p>
-        <table id="jobs-table" style="display:none;">
-            <tr id="jobs-table-header">
-                <th>Company</th>
-                <th>Position</th>
-                <th>Status</th>
+    <div id="recipes" style="display:none;">
+        <p id="recipes-message"></p>
+        <table id="recipes-table" style="display:none;">
+            <tr id="recipes-table-header">
+                <th>Recipe Name</th>
+                <th>Region</th>
+                <th>Type of Food</th>
+                <th>Ingredients</th>
+                <th>Recipe Description</th>
+                <th>Gluten Free</th>
                 <th colspan="2"></th>
             </tr>
         </table>
-        <button type="button" id="add-job">add job</button>
+        <button type="button" id="add-recipe">add recipe</button>
     </div>
-    <div id="edit-job" style="display:none;">
+    <div id="edit-recipe" style="display:none;">
         <form>
+            <br>
             <div>
-                <label for="company">company:</label>
-                <input type="text" id="company">
-            </div>
+                <label for="recipeName">Recipe Name:</label>
+                <input type="text" id="recipeName">
+            </div><br>
             <div>
-                <label for="position">position:</label>
-                <input type="text" id="position">
-            </div>
+                <label for="region">Region:</label>
+                <input type="text" id="region">
+            </div><br>
             <div>
-                <label for="status">status:</label>
-                <select id="status">
-                    <option value="pending">pending</option>
-                    <option value="interview">interview</option>
-                    <option value="declined">declined</option>
+                <label for="typeOfFood">Type of Food:</label>
+                <select id="typeOfFood">
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Snack">Snack</option>
+                    <option value="Dessert">Dessert</option>
                 </select>
-            </div>
-            <button type="button" id="adding-job">add</button>
+            </div><br>
+            <div>
+                <label for="ingredients">Ingredients:</label>
+                <input type="text" id="ingredients">
+            </div><br>
+            <div>
+                <label for="recipeDescription">Recipe Description:</label>
+                <input type="text" id="recipeDescription">
+            </div><br>
+            <div>
+                <label for="glutenFree">Gluten Free:</label>
+                <select id="glutenFree">
+                    <option value="false">False</option>
+                    <option value="true">True</option>
+                </select>
+            </div><br><br>
+            <button type="button" id="adding-recipe">add</button>
             <button type="button" id="edit-cancel">cancel</button>
         </form>
     </div>
-    <script src="./jobs.js"></script>
+    <script src="./recipes.js"></script>
 </body>
 </html>

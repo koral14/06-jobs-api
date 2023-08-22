@@ -22,9 +22,9 @@ const RecipeSchema = new mongoose.Schema({
         maxlength: 250,
         required:[true, 'Please indicate the required ingredients']
     },
-    recepeDescription: {
+    recipeDescription: {
         type: String,
-        required:[true, 'Prease provide the description of the recepe:']
+        required:[true, 'Please provide the description of the recipe:']
     },
     glutenFree: {
         type: Boolean,
