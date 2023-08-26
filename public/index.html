@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes List</title>
+</head>
+
+<body>
+    <h1>Recipes List</h1>
+    <button type="button" id="logoff" style="display:none;">logoff</button>
+    <hr>
+    <p id="message"></p>
+    <hr>
+    <div id="logon-register" style="display:none;">
+        <button type="button" id="logon">logon</button>
+        <button type="button" id="register">register</button>
+    </div>
+    <div id="logon-div" style="display:none;">
+        <form>
+            <div>
+                <label for="email">email:</label>
+                <input type="email" id="email">
+            </div>
+            <div>
+                <label for="password">password:</label>
+                <input type="password" id="password">
+            </div>
+            <button type="button" id="logon-button">logon</button>
+            <button type="button" id="logon-cancel">cancel</button>
+        </form>
+    </div>
+    <div id="register-div" style="display:none;">
+        <form>
+            <div>
+                <label for="name">name:</label>
+                <input type="text" id="name">
+            </div>
+            <div>
+                <label for="email1">email:</label>
+                <input type="email" id="email1">
+            </div>
+            <div>
+                <label for="password1">password:</label>
+                <input type="password" id="password1">
+            </div>
+            <div>
+                <label for="password2">verify password:</label>
+                <input type="password" id="password2">
+            </div>
+            <button type="button" id="register-button">register</button>
+            <button type="button" id="register-cancel">cancel</button>
+        </form>
+    </div>
+    <div id="recipes" style="display:none;">
+        <p id="recipes-message"></p>
+        <table id="recipes-table" style="display:none;">
+            <tr id="recipes-table-header">
+                <th>Recipe Name</th>
+                <th>Region</th>
+                <th>Type of Food</th>
+                <th>Ingredients</th>
+                <th>Recipe Description</th>
+                <th>Gluten Free</th>
+                <th colspan="2"></th>
+            </tr>
+        </table>
+        <button type="button" id="add-recipe">add recipe</button>
+    </div>
+    <div id="edit-recipe" style="display:none;">
+        <form>
+            <br>
+            <div>
+                <label for="recipeName">Recipe Name:</label>
+                <input type="text" id="recipeName">
+            </div><br>
+            <div>
+                <label for="region">Region:</label>
+                <input type="text" id="region">
+            </div><br>
+            <div>
+                <label for="typeOfFood">Type of Food:</label>
+                <select id="typeOfFood">
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Snack">Snack</option>
+                    <option value="Dessert">Dessert</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="ingredients">Ingredients:</label>
+                <input type="text" id="ingredients">
+            </div><br>
+            <div>
+                <label for="recipeDescription">Recipe Description:</label>
+                <input type="text" id="recipeDescription">
+            </div><br>
+            <div>
+                <label for="glutenFree">Gluten Free:</label>
+                <select id="glutenFree">
+                    <option value="false">False</option>
+                    <option value="true">True</option>
+                </select>
+            </div><br><br>
+            <button type="button" id="adding-recipe">add</button>
+            <button type="button" id="edit-cancel">cancel</button>
+        </form>
+    </div>
+    <script src="./recipes.js"></script>
+</body>
+</html>
