@@ -1,19 +1,30 @@
 const mongoose = require('mongoose')
 
 const RecipeSchema = new mongoose.Schema({
+    recipeName:{
+        type: String,
+        required:[true, 'Recipe name:'],
+        maxlength: 50,
+        unique: true
+    },
     region:{
         type: String,
         required:[true, 'Prease provide the region where this recipe comes from'],
         maxlength: 50
     },
-    mainIngredient:{
-        type: String,
-        maxlength: 50
-    },
     typeOfFood: {
         type: String,
-        required:[true, 'Prease indicate what type of food is this'],
+        required:[true, 'Prease select one of the following:'],
         enum: ['Lunch', 'Dinner', 'Snack', 'Dessert']
+    },
+    ingredients:{
+        type: String,
+        maxlength: 250,
+        required:[true, 'Please indicate the required ingredients']
+    },
+    recepeDescription: {
+        type: String,
+        required:[true, 'Prease provide the description of the recepe:']
     },
     glutenFree: {
         type: Boolean,

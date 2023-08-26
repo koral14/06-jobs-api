@@ -10,6 +10,7 @@ const {
 } = require('../controllers/recipes');
 
 router.route('/').post(createRecipe).get(getAllRecipes);
+
 router.route('/:id').get(getRecipe).delete(deleteRecipe).patch(updateRecipe);
 
 module.exports = router;
