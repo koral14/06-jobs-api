@@ -1,0 +1,154 @@
+.homePage {
+    min-height: 100%;
+    padding-top: 10px;
+}
+
+.button-container {
+    margin: 20px;
+}
+
+.link-to-sign-up {
+    color: #393F3F;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.h2-home-page {
+    color: #0B3954;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.h1 {
+    color: #0B3954;
+    font-size: 3rem;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+.button-30 {
+    align-items: center;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395A;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono",monospace;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+  }
+  
+  .button-30:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  }
+  
+  .button-30:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+  
+  .button-30:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+
+  .h2-home {
+    color: black;
+    font-size: 2.5rem;
+  }
+
+  .li-home {
+    font-size: 1rem;
+    color: black;
+  }
+
+  .h3-home {
+    font-size: 1rem;
+    color: black;
+  }
+
+  .p-home {
+    font-size: 1rem;
+    color: black;
+  }
+
+.ul-home {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 3px;
+    grid-row-gap: 0px;
+}
+
+.createAccount {
+  max-width: 70px;
+  right: 0;
+  position: absolute;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.create-recipe {
+  max-width: 60px;
+  padding: 10px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.loading-home {
+  color: darkblue;
+  font-family: cursive;
+  font-size: 2rem;
+}
+
+.sort-label {
+  color: #36395A;
+}
+
+.sort-container {
+  float: right;
+  margin-bottom: 30px;
+  font-weight: 800;
+}
+
+.button-sort {
+  background-color: transparent;
+}
+  
+.cards-home {
+  margin-bottom: 50px;
+}
+
+.nav-home {
+  background-color:rgb(248, 252, 252);
+  position: relative;
+  border-bottom: 5px solid #36395A;
+}
+
+.right {
+  float: right;
+}

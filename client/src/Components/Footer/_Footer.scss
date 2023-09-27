@@ -1,0 +1,80 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 42px;
+    background-color: $tertiaryColor;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    padding-top: 2px;
+}
+
+.copyright {
+    font-family: 'Lucida Sans';
+    margin-left: 10px;
+    color: $white;
+    font-size: 24px;
+    text-align: left;
+}
+.git-links {
+    text-align: right;
+    margin-right: 5px;
+    font-family: 'Lucida Sans';
+}
+
+.git-links p {
+    color: #55828b;
+    padding-right: 90px;
+}
+
+.git-links img {
+    width: 35px;
+    margin: 3px;
+    border: 2px solid transparent;
+    background-color: $white;
+    border-radius: 50%;
+}
+
+.git-links img:hover {
+    border: 5px solid transparent;
+}
+
+.made-by {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        width: 100%;
+        height: 25px;
+    }
+
+    .copyright {
+        font-size: 15px;
+        margin-top: 5px;
+    }
+
+    .made-by > span {
+        display: none;
+    }
+
+    .git-links p {
+        font-size: 10px;
+        width: 180px;
+        padding-right: 60px;
+    }
+
+    .links-without-paragraph {
+        width: 180px;
+    }
+
+    .git-links img {
+        width: 20px;
+        height: 20px;
+    }
+}

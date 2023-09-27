@@ -1,0 +1,44 @@
+html {
+    scroll-behavior: smooth;
+
+    body {
+      font-family: $fontPrimary;
+      color: $primaryColor;
+    }
+
+    // Setup base styles for the following elements in index.css
+    // H1-h4
+    h1 {
+        font-family: $fontSecondary;
+    }
+
+    h2 {
+        font-family: $fontSecondary;
+    }
+
+    h3 {
+        font-family: $fontSecondary;
+    }
+
+    h4 {
+        font-family: $fontSecondary;
+    }
+
+    // P
+    p {
+        font-family: $fontSecondary;
+        font-size: 1rem;
+    }
+    // Div
+    div {
+        font-family: $fontSecondary;
+        font-size: 1rem;
+    }
+    // Button
+    button {
+        font-family: $fontButton;
+        letter-spacing: 0.2rem;
+        padding: 0.5rem 1rem;
+        border: none;
+    }
+}
