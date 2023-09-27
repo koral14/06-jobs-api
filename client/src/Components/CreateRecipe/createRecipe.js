@@ -16,6 +16,7 @@ function Create() {
     const { recipeId } = useParams();
 
     const isEditing = !!recipeId;
+    console.log('is editing in create', isEditing);
 
     console.log('params:', recipeId);
     
@@ -102,15 +103,28 @@ function Create() {
 
             console.log('this is the form data number 1: ', request);
 
-            const response = await axios.post('http://localhost:3001/api/v1/recipes', request, {
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                },
-                params: {
-                    _cache: Date.now(), // unique timestamp
-                }
-            });
-
+            if (isEditing) {
+                const response = await axios.patch(`http://localhost:3001/api/v1/recipes/${recipeId}`, request, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    },
+                    params: {
+                        _cache: Date.now(), // unique timestamp
+                    }
+                });
+                console.log('Successfully updated recipe');
+                navigate('/');
+            } else {
+                const response = await axios.post('http://localhost:3001/api/v1/recipes', request, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    },
+                    params: {
+                        _cache: Date.now(), // unique timestamp
+                    }
+                });
+                console.log('Successfully created recipe');
+            
             if (response.status === 201) {
                 console.log('Successfully created recipe');
                 setName('');
@@ -122,6 +136,7 @@ function Create() {
             } else {
                 console.log('error');
             }
+        }
             
         } catch (error) {
             console.error(error);
