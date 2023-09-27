@@ -25,6 +25,7 @@ const Home = () => {
     };
 
     console.log('authenticatedUser in Home page', authenticatedUser);
+    console.log('login is', login);
     console.log('recipes line 28', recipes);
 
     const handleDeleteRecipe = async (recipeId) => {
@@ -39,7 +40,6 @@ const Home = () => {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            console.log('token in home', token);
             if (response.status === 204) {
                 console.log('Recipe deleted successfully on the server');
             } else {
