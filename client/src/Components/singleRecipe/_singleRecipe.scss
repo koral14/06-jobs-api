@@ -1,0 +1,128 @@
+
+.container-single {
+    max-width: 400px;
+    min-width: 400px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    margin: 30px auto;
+    text-align: center;
+    color: darkblue;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    max-height: 580px; 
+    padding-left: 10px;
+    padding-right: 10px;
+    a {
+        cursor: pointer;
+    }
+    p {
+        img {
+            height: 30px;
+            margin-left: 10px;
+            margin-top: 5px;
+            opacity: 50%;
+            text-align: center;
+        }
+    }}
+
+    .image-single {
+        max-width: 200px;
+    }
+
+    .ingredients-single {
+        background-color: aliceblue;
+        color: darkblue;
+        font-family: cursive;
+        padding: 5px;
+        text-align: center;
+        margin-top: 28px;
+    }
+
+    .single-name {
+        font-size: 1.5rem;
+        color: white;
+        background-color: cadetblue;
+        font-family: 'Lucida Sans', sans-serif;
+        padding: 5px;
+    }
+
+    html p {
+        font-size: 1rem;
+        color: darkblue;
+        font-family: 'Lucida Sans', sans-serif;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .text {
+        overflow: hidden;
+    }
+
+    .container-single.expanded {
+        max-height: none;
+    }
+    
+    .description-single {
+        overflow: hidden;
+        text-align: justify;
+        line-height: 20px;
+    }
+    
+    .description-single.expanded {
+        max-height: none;
+    }
+
+    .read-or-hide {
+        cursor: pointer;
+        color: cadetblue;
+    }
+
+    .remove-btn img {
+        cursor: pointer;
+        width: 30px;
+    }
+
+    .remove-btn {
+        background-color: transparent;
+    }
+
+    .edit-button {
+        background-color: transparent;
+        max-width: 30px;
+    }
+
+    .edit-single {
+        max-width: 30px;
+        cursor: pointer;
+    }
+
+    .one {
+        height: 90%;
+    }
+
+    .two {
+        height: 10%;
+    }
+
+
+    .gluten-single {
+        max-width: 150px;
+        float: left;
+    }
+
+    .single-region {
+        float: right;
+        font-size: 1rem;
+        color: darkblue;
+        font-family: 'Lucida Sans', sans-serif;
+        padding: 5px;
+    }
+
+    .edit-and-del-btn {
+        padding-right: 20px;
+        float: right;
+    }
