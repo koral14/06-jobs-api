@@ -23,13 +23,9 @@ const getRecipe = async (req, res) => {
 };
 
 const createRecipe = async (req, res) => {
-    console.log('Request body1: ', req.body);
     req.body.createdBy = req.user.userId;
-    console.log('Request body2: ', req.body);
     const recipe = await Recipe.create(req.body)
-    console.log('Request body3: ', req.body);
     res.status(StatusCodes.CREATED).json({ recipe })
-    console.log('Request body4: ', req.body);
 };
 
 const updateRecipe = async (req, res) => {
