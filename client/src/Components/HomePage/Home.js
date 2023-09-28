@@ -78,11 +78,10 @@ const Home = () => {
                 ) : (
                     <div>
                         <div className='sort-container'>
-                        <label className='sort-label'>Sort by date: </label>
                         { sorted ? (
-                            <button onClick={handleAscending} className='button-sort'>{arrowUp}</button>
+                            <button onClick={handleAscending} className='button-sort'>Sort by date: {arrowUp}</button>
                         ) : (
-                            <button onClick={handleDescending} className='button-sort'>{arrowDown}</button>
+                            <button onClick={handleDescending} className='button-sort'>Sort by date: {arrowDown}</button>
                         )}
                         </div>
 
