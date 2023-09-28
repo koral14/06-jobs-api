@@ -3,11 +3,17 @@ const { StatusCodes } = require('http-status-codes')
 const { BadRequestError, NotFoundError } = require('../errors')
 
 const getAllRecipes = async (req, res) => {
+    const recipes = await Recipe.find({}).sort('createdAt')
+    res.status(StatusCodes.OK).json({ recipes, count: recipes.length })
+};
+
+const getUserRecipes = async (req, res) => {
     const recipes = await Recipe.find({ createdBy: req.user.userId }).sort('createdAt')
     res.status(StatusCodes.OK).json({ recipes, count: recipes.length })
 };
 
 const getRecipe = async (req, res) => {
+    console.log('getrecipe');
     const { 
         user: { userId }, // located in the request (req), comes from auth middleware
         params: { id: recipeId } // located in rec, comes from params
@@ -69,5 +75,6 @@ module.exports = {
     getRecipe,
     createRecipe,
     updateRecipe,
-    deleteRecipe
+    deleteRecipe,
+    getUserRecipes
 }

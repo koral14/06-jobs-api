@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import style from './_createRecipe.scss';
+// import style from './_createRecipe.scss';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Home from '../images/home.png';
 import 'font-awesome/css/font-awesome.min.css';
@@ -13,7 +13,7 @@ function Create() {
     const [ingredients, setIngredients] = useState('');
     const [description, setDescription] = useState('');
     const [gluten, setGluten] = useState(null);
-    const { recipeId } = useParams();
+    const { recipeId } = useParams(); 
 
     const isEditing = !!recipeId;
     console.log('is editing in create', isEditing);
@@ -62,20 +62,7 @@ function Create() {
         if (!token) {
             console.log('User is not authenticated!');
             return;
-        }
-        
-        const response = await axios.patch(
-            `http://localhost:3001/api/v1/recipes/${recipeId}`,
-            null, 
-            {
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                },
-                params: {
-                    _cache: Date.now(),
-                }
-            }
-        );    
+        }   
     }
 
     useEffect( () => {
@@ -113,7 +100,7 @@ function Create() {
                     }
                 });
                 console.log('Successfully updated recipe');
-                navigate('/');
+                navigate('/loggedIn');
             } else {
                 const response = await axios.post('http://localhost:3001/api/v1/recipes', request, {
                     headers: {
@@ -148,9 +135,10 @@ function Create() {
         localStorage.removeItem('jwtToken');
         navigate('/login');
     };
+
     return (
         <>
-            <Link to="/"><img className='home-icon' src={Home} alt="Home Page" title="Home Page" /></Link>
+            <Link to="/loggedIn"><img className='home-icon' src={Home} alt="Home Page" title="Home Page" /></Link>
             <Link to="/login" onClick={handleLogout}>
                 <button className='log-out-button' title='Logout'>
                     <i className="fa fa-sign-out"></i>
@@ -226,7 +214,7 @@ function Create() {
                 <button className="button-30" variant="primary" type="submit">
                     Submit
                 </button><br />
-            </form>            
+            </form>      
         </>
     )
 }

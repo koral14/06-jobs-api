@@ -1,24 +1,59 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import SingleRecipe from '../singleRecipe/singleRecipe';
 import CreateAccount from '../images/createAccount.png';
+import CreateRecipe from '../images/createRecipe.avif';
 import Footer from '../Footer/Footer';
+import { useAuth } from '../AuthContext/AuthContext';
 
 const arrowUp = '▲';
 const arrowDown = '▼';
 
-const Home = () => {
+const HomeLoggedIn = () => {
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [sorted, setSorted] = useState(false); 
+    const { authenticatedUser, login } = useAuth(); 
+    const navigate = useNavigate();
+    const [sorted, setSorted] = useState(false);   
+
+    const handleLogout = () => {
+        localStorage.removeItem('jwtToken');
+        // Navigate to the login route after removing the token
+        navigate('/login');
+    };
+
+    console.log('authenticatedUser in Home page', authenticatedUser);
+    console.log('login is', login);
     console.log('recipes line 28', recipes);
+
+    const handleDeleteRecipe = async (recipeId) => {
+        const newState = [...recipes].filter((recipeElement) => recipeElement._id !== recipeId);
+        setRecipes(newState);
+    
+        try {
+            const token = localStorage.getItem('jwtToken');
+            
+            const response = await axios.delete(`http://localhost:3001/api/v1/recipes/${recipeId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            if (response.status === 204) {
+                console.log('Recipe deleted successfully on the server');
+            } else {
+                console.error('Failed to delete recipe on the server');
+            }
+        } catch (error) {
+            console.error('Error deleting recipe:', error);
+        }
+    };
 
     useEffect(() => {
         const fetchRecipes = async () => {
             try {
                 const token = localStorage.getItem('jwtToken');
-                const response = await axios.get('http://localhost:3001/api/v1/recipesAll', {
+                const response = await axios.get('http://localhost:3001/api/v1/recipes', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -27,7 +62,12 @@ const Home = () => {
 
                     if (Array.isArray(response.data.recipes)) {
                         setRecipes(response.data.recipes);
-                        setLoading(false);                        
+                        setLoading(false);
+                        // add user data to AuthContext if available
+                        if (response.data.user) {
+                            login(response.data.user);
+                        }
+                        
                     } else {
                         setLoading(false);
                     }
@@ -68,9 +108,22 @@ const Home = () => {
         <>
             <nav className='nav-home'>
                 <div className='right'>
-                    <Link to="/login"><img className='createAccount' src={CreateAccount} alt="Log in" title="Log In" /></Link>
+                    {authenticatedUser ? 
+                        <Link to="/login" onClick={handleLogout}><button className='log-out-button' title='Logout'><i className="fa fa-sign-out"></i></button></Link>
+                    : 
+                        <Link to="/login"><img className='createAccount' src={CreateAccount} alt="Log in" title="Log In" /></Link>
+                    }
                 </div>
-                <h1 className='h1'>Cook Yummy</h1><br/>
+                
+                <h1 className='h1'>Cook Yummy</h1>
+                <div className='left'>
+                    {authenticatedUser ? 
+                        <Link to="/create"><img className='create-recipe' src={CreateRecipe} alt="Create recipe" title="Create Recipe" /></Link>
+                    :
+                        null
+                    }
+                </div>
+                
             </nav>
             <div className='cards-home'>
                 {loading ? (
@@ -91,6 +144,8 @@ const Home = () => {
                                 <SingleRecipe 
                                     key={recipe._id}
                                     recipe={recipe}
+                                    authenticatedUser={authenticatedUser}
+                                    handleDeleteRecipe={handleDeleteRecipe}
                                 />                       
                             ))}
                         </ul>
@@ -102,4 +157,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default HomeLoggedIn;

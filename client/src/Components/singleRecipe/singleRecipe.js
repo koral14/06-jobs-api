@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Breakfast from '../images/Breakfast.avif';
 import Dessert from '../images/Dessert.jpg';
@@ -22,13 +22,13 @@ const SingleRecipe = ({ recipe, handleDeleteRecipe, authenticatedUser }) => {
         setIsReadMore(!isReadMore);
     };
 
-    useEffect(() => {
-        // When the authenticatedUser state changes, this will re-render the component
-    }, [authenticatedUser]);
+    // useEffect(() => {
+    //     // When the authenticatedUser state changes, this will re-render the component
+    // }, [authenticatedUser]);
 
     const limitedDescription = isReadMore
-        ? `${recipe.recipeDescription.slice(0, 200)}${recipe.recipeDescription.length > 200 ? '...' : ''}`
-        : recipe.recipeDescription;
+        ? `${recipe.recipeDescription ? recipe.recipeDescription.slice(0, 200) : ''}${recipe.recipeDescription && recipe.recipeDescription.length > 200 ? '...' : ''}`
+        : recipe.recipeDescription || '';
 
     const isRecipeOwner = authenticatedUser && authenticatedUser.userId === recipe.createdBy;
 
@@ -60,13 +60,15 @@ const SingleRecipe = ({ recipe, handleDeleteRecipe, authenticatedUser }) => {
                 <div className={`description-single ${isReadMore ? '' : 'expanded'}`}>
                     {limitedDescription}
                 </div>
-                <span onClick={toggleReadMore} className="read-or-hide">
-                    {isReadMore ? "...read more" : "..show less"}
-                </span>
-            </div>
+                {recipe.recipeDescription && recipe.recipeDescription.length > 200 && (
+                    <button onClick={toggleReadMore} className='read-or-hide'>
+                        {isReadMore ? 'Show More' : 'Show less'}
+                    </button>
+                )}
+                </div>
             {/* Delete and edit buttons for logged-in users */}
             <div className='two'>
-                {authenticatedUser !== null ? (
+                {authenticatedUser ? (
                     <div className='edit-and-del-btn'>
                         <button className='remove-btn' 
                             data-id='delete the recipe'
@@ -80,9 +82,7 @@ const SingleRecipe = ({ recipe, handleDeleteRecipe, authenticatedUser }) => {
                             </Link>
                         </button>
                     </div>
-                ) : (
-                    <div>Loading</div>
-                )}
+                ) : null}
             </div>
         </div>
     )

@@ -22,6 +22,8 @@ const recipesRouter = require('./routes/recipes');
 const notFoundMiddleware = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
 
+const { getAllRecipes } = require('./controllers/recipes');
+
 app.set('trust proxy', 1)
 app.use(
   rateLimiter({
@@ -43,6 +45,10 @@ app.use(express.static('public'))
 // routes
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/recipes', authenticateUser, recipesRouter);
+
+app.get('/api/v1/recipesAll', async (req, res) => {
+  res.send(await getAllRecipes(req, res));
+})
 
 // app.get('/', (req, res) => {
 //   res.send('<h1>Jobs API</h1><a href="/api-docs">Documentation</a>');

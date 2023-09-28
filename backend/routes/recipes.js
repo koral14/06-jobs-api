@@ -2,14 +2,15 @@ const express = require('express');
 const router = express.Router();
 
 const { 
-    getAllRecipes, 
+    // getAllRecipes, 
     getRecipe, 
     createRecipe, 
     updateRecipe, 
-    deleteRecipe 
+    getUserRecipes,
+    deleteRecipe, 
 } = require('../controllers/recipes');
 
-router.route('/').post(createRecipe).get(getAllRecipes);
+router.route('/').post(createRecipe).get(getUserRecipes);
 
 router.route('/:id').get(getRecipe).delete(deleteRecipe).patch(updateRecipe);
 
