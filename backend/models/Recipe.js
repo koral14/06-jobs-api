@@ -19,17 +19,16 @@ const RecipeSchema = new mongoose.Schema({
     },
     ingredients:{
         type: String,
-        maxlength: 450,
+        maxlength: 650,
         required:[true, 'Ingredients field empty']
     },
     recipeDescription: {
         type: String,
-        maxlength: 450,
+        maxlength: 1100,
         required:[true, 'Description of the recipe missing']
     },
     glutenFree: {
         type: String,
-        // enum: [true, false],
         default: false,
     },
     createdBy: {
