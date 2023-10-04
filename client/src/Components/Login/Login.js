@@ -39,7 +39,6 @@ function Login() {
         if (error.response && error.response.status === 401) {
           alert('Login failed: Incorrect credentials')
           console.log('Login failed: Incorrect credentials');
-          // display an error message to the user here
 
         } if (error.response && error.response.status === 500) {
           console.log('The processing of the request on the server failed unexpectedly');
