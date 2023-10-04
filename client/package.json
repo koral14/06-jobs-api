@@ -9,6 +9,7 @@
     "@truffle/hdwallet-provider": "^1.0.41-1",
     "axios": "^1.5.0",
     "bootstrap": "^3.4.1",
+    "create-vite": "^4.4.1",
     "font-awesome": "^4.7.0",
     "formik": "^2.4.4",
     "jwt-decode": "^3.1.2",
