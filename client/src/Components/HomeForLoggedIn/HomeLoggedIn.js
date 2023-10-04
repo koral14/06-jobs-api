@@ -131,13 +131,14 @@ const HomeLoggedIn = () => {
                 ) : (
                     <div>
                         <div className='sort-container'>
-                        <label className='sort-label'>Sort by date: </label>
-                        { sorted ? (
-                            <button onClick={handleAscending} className='button-sort'>{arrowUp}</button>
-                        ) : (
-                            <button onClick={handleDescending} className='button-sort'>{arrowDown}</button>
-                        )}
-                        </div>
+                            <label className='sort-label'>Sort by date: 
+                                { sorted ? (
+                                    <button onClick={handleAscending} className='button-sort'>{arrowUp}</button>
+                                ) : (
+                                    <button onClick={handleDescending} className='button-sort'>{arrowDown}</button>
+                                )}
+                            </label>
+                        </div><br/>
 
                         <ul className='ul-home'>
                             {recipes.map((recipe) => (

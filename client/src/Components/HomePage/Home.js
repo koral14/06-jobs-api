@@ -13,12 +13,12 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
     const [sorted, setSorted] = useState(false); 
     console.log('recipes line 28', recipes);
-
+console.log(import.meta.env.REACT_URL);
     useEffect(() => {
         const fetchRecipes = async () => {
             try {
                 const token = localStorage.getItem('jwtToken');
-                const response = await axios.get('http://localhost:3001/api/v1/recipesAll', {
+                const response = await axios.get(`${import.meta.env.REACT_URL}`, { // replaced: await axios.get('http://localhost:3001/api/v1/recipesAll', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -83,7 +83,7 @@ const Home = () => {
                         ) : (
                             <button onClick={handleDescending} className='button-sort'>Sort by date: {arrowDown}</button>
                         )}
-                        </div>
+                        </div><br/>
 
                         <ul className='ul-home'>
                             {recipes.map((recipe) => (
