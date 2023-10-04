@@ -9,7 +9,6 @@
     "@truffle/hdwallet-provider": "^1.0.41-1",
     "axios": "^1.5.0",
     "bootstrap": "^3.4.1",
-    "create-vite": "^4.4.1",
     "font-awesome": "^4.7.0",
     "formik": "^2.4.4",
     "jwt-decode": "^3.1.2",
@@ -26,9 +25,10 @@
     "yup": "^1.2.0"
   },
   "scripts": {
-    "start": "serve -s dist",
-    "build": "vite build",
-    "preview": "vite preview"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -50,8 +50,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "sass": "^1.67.0",
-    "vite": "^4.4.10"
+    "sass": "^1.67.0"
   },
   "proxy": "http://localhost:3000"
 }
