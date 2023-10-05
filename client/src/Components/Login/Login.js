@@ -13,7 +13,7 @@ function Login() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost:3001/api/v1/auth/login',  
+        `${import.meta.env.REACT_URL}`,  
         {
           email: email,
           password: password,
