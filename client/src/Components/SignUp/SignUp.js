@@ -49,7 +49,7 @@ function SignUp({ setSessionObject } ) {
             setState(true);
         }
 console.log(data); 
-        axios.post('http://localhost:3001/api/v1/auth/register', {
+        axios.post(`${import.meta.env.REACT_URL}`, {
             name: data.name,
             email: data.email,
             password: data.password,
