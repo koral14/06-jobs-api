@@ -13,7 +13,7 @@ function Login() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${import.meta.env.REACT_URL}`,  
+        `${process.env.REACT_URL}`,  
         {
           email: email,
           password: password,

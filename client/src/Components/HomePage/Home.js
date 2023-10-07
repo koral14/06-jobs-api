@@ -18,7 +18,7 @@ const Home = () => {
         const fetchRecipes = async () => {
             try {
                 const token = localStorage.getItem('jwtToken');
-                const response = await axios.get(`${import.meta.env.REACT_URL}`, { // replaced: await axios.get('http://localhost:3002/api/v1/recipesAll' or `${import.meta.env.REACT_URL}`
+                const response = await axios.get(`${process.env.REACT_URL}`, { // replaced: await axios.get('http://localhost:3002/api/v1/recipesAll' or `${import.meta.env.REACT_URL}`
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
