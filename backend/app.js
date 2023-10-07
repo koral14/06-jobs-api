@@ -17,6 +17,7 @@ const authenticateUser = require('./middleware/authentication')
 // routers
 const authRouter = require('./routes/auth');
 const recipesRouter = require('./routes/recipes');
+const allRecipesRouter = require('./routes/recipesAll');
 
 // error handler
 const notFoundMiddleware = require('./middleware/not-found');
@@ -46,9 +47,10 @@ app.use(express.static('public'))
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/recipes', authenticateUser, recipesRouter);
 
-app.get('/api/v1/recipesAll', async (req, res) => {
-  res.send(await getAllRecipes(req, res));
-})
+// app.get('/api/v1/recipesAll', async (req, res) => {
+//   res.send(await getAllRecipes(req, res));
+// })
+app.use('/api/v1/recipesAll', allRecipesRouter);
 
 // app.get('/', (req, res) => {
 //   res.send('<h1>Jobs API</h1><a href="/api-docs">Documentation</a>');
