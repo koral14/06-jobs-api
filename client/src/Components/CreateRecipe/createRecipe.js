@@ -91,7 +91,7 @@ function Create() {
             console.log('this is the form data number 1: ', request);
 
             if (isEditing) {
-                const response = await axios.patch(`${import.meta.env.REACT_URL}/recipes/${recipeId}`, request, {
+                const response = await axios.patch(`${process.env.REACT_URL}/recipes/${recipeId}`, request, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                     },
@@ -102,7 +102,7 @@ function Create() {
                 console.log('Successfully updated recipe');
                 navigate('/loggedIn');
             } else {
-                const response = await axios.post(`${import.meta.env.REACT_URL}/recipes`, request, {
+                const response = await axios.post(`${process.env.REACT_URL}/recipes`, request, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                     },
