@@ -38,7 +38,7 @@ function Create() {
             console.log('Token edit:', token);
             
         try {
-            const response = await axios.get(`http://localhost:3002/api/v1/recipes/${recipeId}`, {
+            const response = await axios.get(`${process.env.REACT_URL}/recipes/${recipeId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
