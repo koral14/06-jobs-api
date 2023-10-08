@@ -13,12 +13,12 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
     const [sorted, setSorted] = useState(false); 
     console.log('recipes line 28', recipes);
-// console.log(import.meta.env.REACT_URL);
+console.log("line 16 home page", process.env.REACT_URL);
     useEffect(() => {
         const fetchRecipes = async () => {
             try {
                 const token = localStorage.getItem('jwtToken');
-                const response = await axios.get(`${process.env.REACT_URL}`, { // replaced: await axios.get('http://localhost:3002/api/v1/recipesAll' or `${import.meta.env.REACT_URL}`
+                const response = await axios.get(`${process.env.REACT_URL}/recipesAll`, { // replaced: await axios.get('http://localhost:3002/api/v1/recipesAll' or `${process.env.REACT_URL}`
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
