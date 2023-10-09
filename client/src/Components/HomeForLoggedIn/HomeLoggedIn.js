@@ -34,7 +34,7 @@ const HomeLoggedIn = () => {
         try {
             const token = localStorage.getItem('jwtToken');
             
-            const response = await axios.delete(`${process.env.REACT_URL}/api/v1/recipes/${recipeId}`, {
+            const response = await axios.delete(`${process.env.REACT_URL}/recipes/${recipeId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -53,7 +53,7 @@ const HomeLoggedIn = () => {
         const fetchRecipes = async () => {
             try {
                 const token = localStorage.getItem('jwtToken');
-                const response = await axios.get(`${process.env.REACT_URL}/api/v1/recipes`, {
+                const response = await axios.get(`${process.env.REACT_URL}/recipes`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
