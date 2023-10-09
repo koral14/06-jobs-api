@@ -49,7 +49,7 @@ function SignUp({ setSessionObject } ) {
             setState(true);
         }
 console.log(data); 
-        axios.post(`${process.env.REACT_URL}/auth/register`, {
+        axios.post(`${process.env.REACT_APP_REACT_URL}/api/v1/auth/register`, {
             name: data.name,
             email: data.email,
             password: data.password,
