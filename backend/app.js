@@ -34,10 +34,16 @@ app.use(
 )
 app.use(express.json());
 app.use(helmet());
-app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true,
-}));
+
+
+const corsOptions = {
+  origin: 'https://cookyummi.onrender.com', 
+  credentials: true, 
+};
+
+app.use(cors(corsOptions));
+
+
 app.use(xss());
 
 app.use(cookieParser());
