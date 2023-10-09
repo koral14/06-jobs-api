@@ -38,7 +38,7 @@ function Create() {
             console.log('Token edit:', token);
             
         try {
-            const response = await axios.get(`${process.env.REACT_URL}/api/v1/recipes/${recipeId}`, {
+            const response = await axios.get(`${process.env.REACT_URL}/recipes/${recipeId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -91,7 +91,7 @@ function Create() {
             console.log('this is the form data number 1: ', request);
 
             if (isEditing) {
-                const response = await axios.patch(`${process.env.REACT_URL}/api/v1/recipes/${recipeId}`, request, {
+                const response = await axios.patch(`${process.env.REACT_URL}/recipes/${recipeId}`, request, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                     },
@@ -102,7 +102,7 @@ function Create() {
                 console.log('Successfully updated recipe');
                 navigate('/loggedIn');
             } else {
-                const response = await axios.post(`${process.env.REACT_URL}/api/v1/recipes`, request, {
+                const response = await axios.post(`${process.env.REACT_URL}/recipes`, request, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                     },
