@@ -70,3 +70,11 @@
     background: transparent;
   }
   
+  @media (max-width: 768px) {
+    .log-out-button i {
+      position: absolute;
+      right: 0;
+      width: 50px;
+      font-size: 2rem;
+    }
+  }

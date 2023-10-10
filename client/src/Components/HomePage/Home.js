@@ -13,12 +13,13 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
     const [sorted, setSorted] = useState(false); 
     
-    console.log('process.env.React_url', process.env.REACT_APP_REACT_URL);
+    // console.log('process.env.React_url', process.env.REACT_APP_REACT_URL);
     useEffect(() => {
         const fetchRecipes = async () => {
             try {
                 const token = localStorage.getItem('jwtToken');
-                const response = await axios.get(`${process.env.REACT_APP_REACT_URL}/api/v1/recipesAll`, { // replaced: await axios.get('http://localhost:3002/api/v1/recipesAll' or `${process.env.REACT_URL}`
+                const response = await axios.get(`${process.env.REACT_APP_REACT_URL}/api/v1/recipesAll`, { // replaced: await axios.get('http://localhost:3002/api/v1/recipesAll' or `${process.env.REACT_APP_REACT_URL}` // for deployment
+                // const response = await axios.get(`http://localhost:3001/api/v1/recipesAll`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -79,9 +80,9 @@ const Home = () => {
                     <div>
                         <div className='sort-container'>
                         { sorted ? (
-                            <button onClick={handleAscending} className='button-sort'>Sort by date: {arrowUp}</button>
+                            <button onClick={handleAscending} className='button-sort'>Sort: {arrowUp}</button>
                         ) : (
-                            <button onClick={handleDescending} className='button-sort'>Sort by date: {arrowDown}</button>
+                            <button onClick={handleDescending} className='button-sort'>Sort: {arrowDown}</button>
                         )}
                         </div><br/>
 

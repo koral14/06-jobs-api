@@ -22,7 +22,7 @@
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     background-color:#f2f7f8;
-    border-radius: 15px;
+    border-radius: 5px;
     box-shadow: inset 0 -3em 3em rgba(193, 205, 224, 0.1), 0 0 0 2px rgb(255, 255, 255),
     0.3em 0.3em 1em rgba(114, 147, 218, 0.3);
 }
@@ -34,10 +34,6 @@
     padding: 5px;
     font-size: 16px;
     width: 80%;
-}
-
-.email-login {
-    // background-color: #0B3954;
 }
 
 .form-inputs-login input {
@@ -126,11 +122,6 @@
     font-size: large;
 }
 
-.input-checkbox-login {
-    position: relative;
-    margin-top: 50px;
-}
-
 .show-pass-btn-login {
     position: absolute;
     background-color: transparent;
@@ -162,4 +153,29 @@
     padding: 5px;
     cursor: pointer;
     margin-left: 15px;
+}
+
+.show-pass-btn-login {
+    position: absolute;
+    background-color: transparent;
+    margin-top: 195px;
+    right: 130px;
+    width: 52px;
+    cursor: pointer;
+}
+
+.show-pass-btn-login > span {
+    fill: gray;
+}
+
+@media (max-width: 768px) {
+    .form-container-login {
+        max-width: 90%;    
+    }
+
+    .home-icon {
+        margin-top: 1rem;
+        padding-bottom: 0.5rem;
+        position: relative;
+    }
 }

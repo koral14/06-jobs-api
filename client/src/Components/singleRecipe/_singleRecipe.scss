@@ -128,3 +128,30 @@
         padding-right: 20px;
         float: right;
     }
+
+    @media (max-width: 768px) {
+        .container-single {
+            max-width: 90vw;
+            min-width: 90vw;
+            max-height: 480px;
+        }
+
+        .image-single {
+            max-width: 50%;
+        }
+
+        html p {
+            font-size: 0.8rem;
+        }
+        
+        .single-name {
+            font-size: 1.2rem;
+        }
+
+        .description-single {
+            font-size: 0.7rem;
+        }
+        .container-single {
+
+        }
+    }

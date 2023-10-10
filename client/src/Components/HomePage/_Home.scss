@@ -159,3 +159,31 @@
 .right {
   float: right;
 }
+
+@media (max-width: 768px) {
+  .ul-home {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    margin-left: 20px;
+  }
+
+  .h1 {
+    font-size: 2rem;
+  }
+
+  .sort-container button {
+    font-size: 1rem;
+  }
+
+  .createAccount {
+    max-width: 60px;
+  }
+
+  .create-recipe {
+    max-width: 35px;
+    padding: 2px;
+    margin-left: 10px;
+  }
+
+}

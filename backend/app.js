@@ -37,7 +37,8 @@ app.use(helmet());
 
 
 const corsOptions = {
-  origin: 'https://cookyummi.onrender.com', 
+  origin: 'https://cookyummi.onrender.com', // for deployment
+  // origin: 'http://localhost:3000',
   credentials: true, 
 };
 
@@ -65,7 +66,7 @@ app.use('/api/v1/recipesAll', allRecipesRouter);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 3001;
 
 const start = async () => {
   try {
