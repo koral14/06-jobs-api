@@ -11,7 +11,7 @@ var minNumberofChars = 8;
 var maxNumberofChars = 16;
 var regularExpression  = /^[A-Za-z0-9]{3,16}$/;
 
-function SignUp({ setSessionObject } ) {
+function SignUp() {
     const [errorMsg, setErrorMsg] = useState('');
     const [errorMessage, setErrorMessage] = useState('')
     const [state, setState] = useState(false);
@@ -48,8 +48,9 @@ function SignUp({ setSessionObject } ) {
             setErrorMessage('');
             setState(true);
         }
-console.log(data); 
-        axios.post(`${process.env.REACT_APP_REACT_URL}/api/v1/auth/register`, {
+
+        axios.post(`${process.env.REACT_APP_REACT_URL}/api/v1/auth/register`, { // for deployment
+        // axios.post(`http://localhost:3001/api/v1/auth/register`, {
             name: data.name,
             email: data.email,
             password: data.password,
@@ -136,7 +137,9 @@ console.log(data);
                         {errorMessage === '' ? null :
                             <span className='error-message'>{errorMessage}</span>}
                     </div>
-                    <button type="submit" className="button-30">Register</button><br/>
+                    <div className='container-register-button'>
+                        <button type="submit" className="button-30-signUp">Register</button><br/>
+                    </div>
                 </form>                   
             </div>
         </>

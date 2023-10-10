@@ -34,7 +34,8 @@ const HomeLoggedIn = () => {
         try {
             const token = localStorage.getItem('jwtToken');
             
-            const response = await axios.delete(`${process.env.REACT_APP_REACT_URL}/api/v1/recipes/${recipeId}`, {
+            const response = await axios.delete(`${process.env.REACT_APP_REACT_URL}/api/v1/recipes/${recipeId}`, { // for deployment
+            // const response = await axios.delete(`http://localhost:3001/api/v1/recipes/${recipeId}`, { 
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -53,7 +54,8 @@ const HomeLoggedIn = () => {
         const fetchRecipes = async () => {
             try {
                 const token = localStorage.getItem('jwtToken');
-                const response = await axios.get(`${process.env.REACT_APP_REACT_URL}/api/v1/recipes`, {
+                const response = await axios.get(`${process.env.REACT_APP_REACT_URL}/api/v1/recipes`, { // for deployment
+                // const response = await axios.get(`http://localhost:3001/api/v1/recipes`, {   
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

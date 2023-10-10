@@ -56,7 +56,6 @@
 
     .copyright {
         font-size: 15px;
-        margin-top: 5px;
     }
 
     .made-by > span {
@@ -76,5 +75,16 @@
     .git-links img {
         width: 20px;
         height: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        height: 38px;
+    }
+
+    .git-links img {
+        width: 30px;
+        height: 30px;
     }
 }
