@@ -9,6 +9,7 @@ const rateLimiter = require('express-rate-limit')
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
+const path = require('path')
 
 // connectDB
 const connectDB = require('./db/connect')
@@ -62,6 +63,13 @@ app.use('/api/v1/recipesAll', allRecipesRouter);
 // app.get('/', (req, res) => {
 //   res.send('<h1>Jobs API</h1><a href="/api-docs">Documentation</a>');
 // });
+
+// solution for solving the issue of with refreshing the page on the /loggedIn route-----------
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..\client\public\index.html', index.html));
+})
+
+//--------------------------------------------------------------------------------------------
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
