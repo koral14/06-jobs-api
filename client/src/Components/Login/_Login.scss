@@ -159,7 +159,7 @@
     position: absolute;
     background-color: transparent;
     margin-top: 195px;
-    right: 130px;
+    left: 1250px;
     width: 52px;
     cursor: pointer;
 }
@@ -177,5 +177,9 @@
         margin-top: 1rem;
         padding-bottom: 0.5rem;
         position: relative;
+    }
+    .show-pass-btn-login {
+        margin-top: 265px;
+        left: 190px;
     }
 }
