@@ -142,12 +142,12 @@ function Create() {
     return (
         <>
             <Link to="/loggedIn"><img className='home-icon' src={Home} alt="Home Page" title="Home Page" /></Link>
-            <Link to="/login" onClick={handleLogout}>
+            <Link to="/login" onClick={handleLogout} className="log-out-a">
                 <button className='log-out-button' title='Logout'>
                     <i className="fa fa-sign-out"></i>
                 </button>
             </Link>
-            <h1 className='h1-signUP'>Add a recipe</h1>
+            <h1 className='h1-create'>Add a recipe</h1>
             <form className='container-form-create' onSubmit={handleFormSubmit}>
                 <label className='label-create' htmlFor='recipeName'>Recipe name:</label>
                 <input 

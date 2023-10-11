@@ -58,6 +58,16 @@
     }
   }
   
+  .h1-create {
+    color: #0B3954;;
+    font-size: 3rem;
+    text-align: center;
+    padding: 10px;
+    padding-top: 40px;
+    letter-spacing: 5px;
+    font-weight: bold;
+  }
+
   .log-out-button i {
     position: absolute;
     right: 0;
@@ -74,7 +84,21 @@
     .log-out-button i {
       position: absolute;
       right: 0;
-      width: 50px;
-      font-size: 2rem;
+      width: 80px;
+      font-size: 2.8rem;
+    }
+
+    .h1-create {
+      font-size: 1.9rem;
+      padding-top: 10px;
+    }
+
+    .container-form-create {
+      max-width: 90%;
+    }
+
+    .log-out-a {
+      position: absolute;
+      right: 0;
     }
   }
