@@ -73,7 +73,7 @@ app.get('/*', (req, res) => {
   // res.sendFile('../client/public/index.html', {root: path.dirname(__dirname)});
   // res.sendFile('client/public/index1.html' , { root : __dirname});
   // res.sendFile( path.resolve('client', 'public', 'index.html') );
-  res.sendFile( path.resolve('client/public/index.html') );
+  res.sendFile( path.resolve('../client/public/index.html') );
 })
 
 //--------------------------------------------------------------------------------------------
