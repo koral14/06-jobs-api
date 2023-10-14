@@ -74,7 +74,7 @@ function Login() {
           />
         </div>
 
-        <div className="email-login">
+        <div className="password-container">
           <label className="label-email">Password:</label><br/>
           <input 
             className="form-inputs-login" 
@@ -83,7 +83,9 @@ function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="button" onClick={togglePassword} className='show-pass-btn-login'>{passwordShown ? <span>{hidePass}</span> : <span>{showPass}</span>}</button> 
+          {/* <button type="button" onClick={togglePassword} className='show-pass-btn-login'>
+              {passwordShown ? <span>{hidePass}</span> : <span>{showPass}</span>}
+          </button>  */}
         </div>
 
         <button className="button-30" variant="primary" type="submit" >
