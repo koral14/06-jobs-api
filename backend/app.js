@@ -65,10 +65,13 @@ app.use('/api/v1/recipesAll', allRecipesRouter);
 // });
 
 // solution for solving the issue of with refreshing the page on the /loggedIn route-----------
+// console.log(path.join(__dirname, '..client/public', 'index.html'));
 app.get('*', (req, res) => {
   // res.sendFile(path.join(__dirname, '../client/public', 'index.html'));
   // res.sendFile('../client/public/index.html', {root: __dirname});
-  res.sendFile('../client/public/index.html', {root: path.dirname(__dirname)});
+  // res.sendFile('../client/public/index.html', {root: path.dirname(__dirname)});
+  // res.sendFile('client/public/index1.html' , { root : __dirname});
+  res.sendFile( path.resolve('client', 'public', 'index.html') );
 })
 
 //--------------------------------------------------------------------------------------------
