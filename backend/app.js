@@ -9,7 +9,6 @@ const rateLimiter = require('express-rate-limit')
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
-// const path = require('path')
 
 // connectDB
 const connectDB = require('./db/connect')
@@ -23,8 +22,6 @@ const allRecipesRouter = require('./routes/recipesAll');
 // error handler
 const notFoundMiddleware = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
-
-const { getAllRecipes } = require('./controllers/recipes');
 
 app.set('trust proxy', 1)
 app.use(
@@ -44,39 +41,13 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
-
 app.use(xss());
-
 app.use(cookieParser());
 
-// app.use(express.static('public')) // to remove
 // routes
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/recipes', authenticateUser, recipesRouter);
-
-// app.get('/api/v1/recipesAll', async (req, res) => {
-//   res.send(await getAllRecipes(req, res));
-// })
 app.use('/api/v1/recipesAll', allRecipesRouter);
-
-// app.get('/', (req, res) => {
-//   res.send('<h1>Jobs API</h1><a href="/api-docs">Documentation</a>');
-// });
-
-// solution for solving the issue of with refreshing the page on the /loggedIn route-----------
-// console.log(path.join(__dirname, '..client/public', 'index.html'));
-// console.log(path.join(__dirname, '..client/public/index.html', 'index.html'));
-// app.get('/*', (req, res) => {
-  // res.sendFile(path.join(__dirname, '../client/public', 'index.html'));
-  // res.sendFile('../client/public/index.html', {root: __dirname});
-  // res.sendFile('../client/public/index.html', {root: path.dirname(__dirname)});
-  // res.sendFile('client/public/index1.html' , { root : __dirname});
-  // res.sendFile( path.resolve('client', 'public', 'index.html') );
-  // res.sendFile( path.resolve('../client/public/index.html') );
-// })
-
-//--------------------------------------------------------------------------------------------
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
