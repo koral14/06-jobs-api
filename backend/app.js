@@ -9,6 +9,7 @@ const rateLimiter = require('express-rate-limit')
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
+const path = require('path')
 
 // connectDB
 const connectDB = require('./db/connect')
@@ -18,6 +19,10 @@ const authenticateUser = require('./middleware/authentication')
 const authRouter = require('./routes/auth');
 const recipesRouter = require('./routes/recipes');
 const allRecipesRouter = require('./routes/recipesAll');
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'public', 'index.html'));
+});
 
 // error handler
 const notFoundMiddleware = require('./middleware/not-found');
